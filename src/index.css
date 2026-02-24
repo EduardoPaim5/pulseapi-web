@@ -1,0 +1,150 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Montserrat:wght@500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  font-family: "Manrope", "Trebuchet MS", system-ui, sans-serif;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 15% 18%, rgba(230, 255, 255, 0.55), rgba(230, 255, 255, 0) 35%),
+    radial-gradient(circle at 82% 22%, rgba(206, 248, 255, 0.38), rgba(206, 248, 255, 0) 32%),
+    radial-gradient(circle at 80% 75%, rgba(115, 239, 255, 0.22), rgba(115, 239, 255, 0) 45%),
+    linear-gradient(140deg, #0f5f87 0%, #1a8ab9 24%, #2ab4dc 48%, #4ec6eb 70%, #79d6f4 100%);
+  color: #0a2230;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.26) 0%,
+      rgba(255, 255, 255, 0.08) 14%,
+      rgba(255, 255, 255, 0) 26%
+    ),
+    repeating-linear-gradient(
+      12deg,
+      rgba(255, 255, 255, 0.08) 0px,
+      rgba(255, 255, 255, 0.08) 2px,
+      rgba(255, 255, 255, 0) 2px,
+      rgba(255, 255, 255, 0) 12px
+    );
+  z-index: -1;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 20% 75%, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0) 18%),
+    radial-gradient(circle at 65% 14%, rgba(255, 255, 255, 0.19), rgba(255, 255, 255, 0) 16%),
+    radial-gradient(circle at 90% 56%, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0) 14%);
+  z-index: -1;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Readability mode: keep text dark across the interface */
+#root,
+#root * {
+  color: #0a2230;
+}
+
+#root input,
+#root textarea,
+#root select {
+  color: #0a2230;
+}
+
+#root input::placeholder,
+#root textarea::placeholder {
+  color: rgba(10, 34, 48, 0.62);
+}
+
+@layer components {
+  .glass-panel {
+    @apply rounded-3xl border border-cyan-100/45 shadow-glass backdrop-blur-glass;
+    background:
+      linear-gradient(
+        180deg,
+        rgba(250, 255, 255, 0.36) 0%,
+        rgba(94, 190, 228, 0.46) 18%,
+        rgba(28, 126, 170, 0.74) 52%,
+        rgba(18, 84, 129, 0.88) 100%
+      );
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.86),
+      inset 0 20px 34px rgba(255, 255, 255, 0.1),
+      inset 0 -22px 28px rgba(2, 51, 85, 0.38),
+      0 24px 46px rgba(0, 56, 94, 0.42);
+  }
+
+  .glass-card {
+    @apply rounded-2xl border border-cyan-100/35 shadow-float backdrop-blur-glass;
+    background:
+      linear-gradient(
+        180deg,
+        rgba(247, 255, 255, 0.28) 0%,
+        rgba(102, 183, 219, 0.34) 22%,
+        rgba(24, 108, 148, 0.62) 60%,
+        rgba(13, 72, 113, 0.78) 100%
+      );
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.82),
+      inset 0 15px 26px rgba(255, 255, 255, 0.06),
+      inset 0 -16px 20px rgba(1, 55, 89, 0.34),
+      0 16px 32px rgba(0, 61, 103, 0.34);
+  }
+
+  .subtle-ring {
+    @apply ring-1 ring-white/10;
+  }
+
+  .aero-badge {
+    @apply inline-flex items-center gap-1 rounded-full border border-white/45 px-3 py-1 text-xs font-semibold tracking-wide;
+    background:
+      linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.58) 0%,
+        rgba(126, 210, 242, 0.36) 100%
+      );
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.72),
+      0 6px 14px rgba(0, 77, 124, 0.2);
+  }
+
+  .glass-panel input,
+  .glass-panel textarea,
+  .glass-panel select {
+    color: #f4fcff;
+    border-color: rgba(219, 247, 255, 0.45);
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(95, 177, 216, 0.2) 100%
+    );
+  }
+
+  .glass-panel input::placeholder,
+  .glass-panel textarea::placeholder {
+    color: rgba(230, 247, 255, 0.72);
+  }
+}
