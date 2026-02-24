@@ -61,3 +61,4 @@ npm run dev
 
 ## Observações
 - A UI usa apenas endpoints documentados pelo backend PulseAPI.
+- O access token fica em memória e `sessionStorage` (escopo da aba), reduzindo persistência em relação a `localStorage`.

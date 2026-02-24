@@ -1,6 +1,7 @@
 import React, { createContext, useCallback, useEffect, useMemo, useState } from "react";
 import { authApi } from "../api/endpoints";
 import type { AuthResponse, MeResponse } from "../api/types";
+import { clearToken as clearStoredToken, getToken, setToken as setStoredToken } from "./tokenStore";
 
 type AuthContextValue = {
   user: MeResponse | null;
@@ -14,20 +15,18 @@ type AuthContextValue = {
 
 const AuthContext = createContext<AuthContextValue | undefined>(undefined);
 
-const TOKEN_KEY = "pulseapi_token";
-
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [token, setToken] = useState<string | null>(() => localStorage.getItem(TOKEN_KEY));
+  const [token, setToken] = useState<string | null>(() => getToken());
   const [user, setUser] = useState<MeResponse | null>(null);
   const [loading, setLoading] = useState(true);
 
   const persistToken = useCallback((auth: AuthResponse) => {
-    localStorage.setItem(TOKEN_KEY, auth.accessToken);
+    setStoredToken(auth.accessToken);
     setToken(auth.accessToken);
   }, []);
 
   const clearToken = useCallback(() => {
-    localStorage.removeItem(TOKEN_KEY);
+    clearStoredToken();
     setToken(null);
     setUser(null);
   }, []);
