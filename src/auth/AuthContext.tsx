@@ -9,7 +9,7 @@ type AuthContextValue = {
   login: (email: string, password: string) => Promise<void>;
   register: (email: string, password: string) => Promise<void>;
   logout: () => void;
-  refreshMe: () => Promise<void>;
+  refreshMe: (tokenOverride?: string | null) => Promise<void>;
 };
 
 const AuthContext = createContext<AuthContextValue | undefined>(undefined);
@@ -32,8 +32,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     setUser(null);
   }, []);
 
-  const refreshMe = useCallback(async () => {
-    if (!token) {
+  const refreshMe = useCallback(async (tokenOverride?: string | null) => {
+    const currentToken = tokenOverride ?? token;
+    if (!currentToken) {
       setUser(null);
       return;
     }
@@ -49,7 +50,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     async (email: string, password: string) => {
       const auth = await authApi.login({ email, password });
       persistToken(auth);
-      await refreshMe();
+      await refreshMe(auth.accessToken);
     },
     [persistToken, refreshMe]
   );
@@ -58,7 +59,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     async (email: string, password: string) => {
       const auth = await authApi.register({ email, password });
       persistToken(auth);
-      await refreshMe();
+      await refreshMe(auth.accessToken);
     },
     [persistToken, refreshMe]
   );

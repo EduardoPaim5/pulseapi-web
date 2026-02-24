@@ -40,7 +40,7 @@ cp .env.example .env
 
 Edite `.env` com o endereço da API. Em produção (Railway):
 ```
-VITE_API_BASE_URL=http://pulseapi-production-c537.up.railway.app
+VITE_API_BASE_URL=https://pulseapi-production-c537.up.railway.app
 ```
 
 3. Inicie o app:
@@ -60,4 +60,3 @@ npm run dev
 
 ## Observações
 - A UI usa apenas endpoints documentados pelo backend PulseAPI.
-- O status e latência na lista de monitores são atualizados após recheck manual, pois o endpoint atual de listagem não expõe esses campos.
