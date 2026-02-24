@@ -24,7 +24,7 @@ Frontend para o backend PulseAPI, oferecendo um painel web para monitoramento de
 - Recharts
 
 ## Requisitos
-- Node.js 18+
+- Node.js 20 LTS (ou superior)
 - API PulseAPI disponível (local ou Railway)
 
 ## Configuração
