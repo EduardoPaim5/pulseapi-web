@@ -57,6 +57,7 @@ npm run dev
 1. Crie um novo projeto e conecte este repositório.
 2. Configure a variável `VITE_API_BASE_URL`.
 3. Faça o deploy.
+4. O projeto publica headers de segurança via `vercel.json` (CSP, HSTS, X-Frame-Options e outros).
 
 ## Observações
 - A UI usa apenas endpoints documentados pelo backend PulseAPI.
