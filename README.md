@@ -52,6 +52,7 @@ npm run dev
 - `npm run dev` inicia o ambiente local.
 - `npm run build` gera a build de produção.
 - `npm run preview` pré-visualiza a build localmente.
+- `npm test` roda os testes (Vitest).
 
 ## Deploy (Vercel)
 1. Crie um novo projeto e conecte este repositório.
