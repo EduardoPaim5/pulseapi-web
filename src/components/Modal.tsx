@@ -22,7 +22,7 @@ const Modal: React.FC<ModalProps> = ({ open, title, onClose, children }) => {
           <h2 className="text-lg font-semibold text-cyan-50">{title}</h2>
           <button
             onClick={onClose}
-            className="rounded-full border border-white/45 bg-[linear-gradient(180deg,rgba(255,255,255,0.42)_0%,rgba(171,223,245,0.24)_100%)] px-3 py-1 text-xs uppercase tracking-wide text-white/90 hover:brightness-110"
+            className="rounded-full border border-cyan-200/85 bg-[linear-gradient(180deg,rgba(246,255,255,0.95)_0%,rgba(147,227,255,0.74)_100%)] px-3 py-1 text-xs uppercase tracking-wide text-[#0a2b3d] shadow-[inset_0_1px_0_rgba(255,255,255,0.95),0_6px_12px_rgba(41,99,133,0.2)] hover:brightness-110"
           >
             Close
           </button>

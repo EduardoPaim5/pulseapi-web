@@ -21,8 +21,8 @@ const Sidebar = ({ className }: SidebarProps) => {
               className={({ isActive }) =>
                 `flex items-center gap-3 rounded-2xl px-4 py-3 text-sm font-semibold transition ${
                   isActive
-                    ? "border border-cyan-100/55 bg-[linear-gradient(180deg,rgba(255,255,255,0.42)_0%,rgba(152,218,245,0.3)_100%)] text-cyan-50 shadow-[inset_0_1px_0_rgba(255,255,255,0.75),0_10px_20px_rgba(0,76,116,0.24)]"
-                    : "text-cyan-50/75 hover:bg-white/10 hover:text-cyan-50"
+                    ? "border border-emerald-100/65 bg-[linear-gradient(180deg,rgba(255,255,255,0.66)_0%,rgba(172,244,210,0.42)_42%,rgba(198,202,255,0.34)_100%)] text-[#0f3344] shadow-[inset_0_1px_0_rgba(255,255,255,0.85),0_10px_20px_rgba(72,123,120,0.2)]"
+                    : "text-[#153d4f]/80 hover:bg-white/20 hover:text-[#0d2d3d]"
                 }`
               }
             >
