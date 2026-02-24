@@ -21,6 +21,13 @@ export const authApi = {
     const { data } = await apiClient.post<AuthResponse>("/api/v1/auth/login", payload);
     return data;
   },
+  refresh: async () => {
+    const { data } = await apiClient.post<AuthResponse>("/api/v1/auth/refresh");
+    return data;
+  },
+  logout: async () => {
+    await apiClient.post("/api/v1/auth/logout");
+  },
   me: async () => {
     const { data } = await apiClient.get<MeResponse>("/api/v1/auth/me");
     return data;

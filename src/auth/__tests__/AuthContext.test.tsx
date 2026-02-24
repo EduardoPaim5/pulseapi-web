@@ -3,6 +3,7 @@ import userEvent from "@testing-library/user-event";
 import { vi } from "vitest";
 import { AuthProvider } from "../AuthContext";
 import { useAuth } from "../useAuth";
+import { getToken } from "../tokenStore";
 
 const { loginMock, registerMock, meMock } = vi.hoisted(() => ({
   loginMock: vi.fn(),
@@ -52,7 +53,7 @@ describe("AuthContext", () => {
       expect(screen.getByTestId("user-email")).toHaveTextContent("user@pulse.dev");
     });
 
-    expect(window.sessionStorage.getItem("pulseapi_token")).toBe("token-abc");
+    expect(getToken()).toBe("token-abc");
     expect(loginMock).toHaveBeenCalledWith({ email: "user@pulse.dev", password: "secret123" });
     expect(meMock).toHaveBeenCalled();
   });

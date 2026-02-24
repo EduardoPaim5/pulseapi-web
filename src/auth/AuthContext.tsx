@@ -64,16 +64,25 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   );
 
   const logout = useCallback(() => {
+    void authApi.logout().catch(() => undefined);
     clearToken();
   }, [clearToken]);
 
   useEffect(() => {
     const init = async () => {
+      if (!token) {
+        try {
+          const refreshed = await authApi.refresh();
+          persistToken(refreshed);
+        } catch {
+          clearToken();
+        }
+      }
       await refreshMe();
       setLoading(false);
     };
     void init();
-  }, [refreshMe]);
+  }, [token, persistToken, clearToken, refreshMe]);
 
   const value = useMemo(
     () => ({
