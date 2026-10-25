@@ -6,7 +6,7 @@ Frontend para o backend PulseAPI, oferecendo um painel web para monitoramento de
 
 Na [interface publicada](https://pulseapi-web.vercel.app), use **Visitar demonstração sem cadastro**. O link direto é `/dashboard?demo=1`.
 
-A demonstração usa somente dados fictícios no navegador. Consultas, rechecks, novos monitores e reconhecimento de alertas são simulados; nenhum endpoint informado é acessado e as alterações desaparecem ao recarregar. O aviso permanece visível e “Sair da demonstração” retorna ao login normal. O modo é opt-in, nunca um fallback silencioso de uma API indisponível. A publicação depende do deploy do commit que contém essa funcionalidade.
+A demonstração usa somente dados fictícios no navegador. Consultas, rechecks, novos monitores e reconhecimento de alertas são simulados; nenhum endpoint informado é acessado e as alterações desaparecem ao recarregar. O aviso permanece visível e “Sair da demonstração” retorna ao login normal. O modo é opt-in, nunca um fallback silencioso de uma API indisponível. A visita foi validada na Vercel em 25/10/2026; ela demonstra a interface e não substitui a execução do backend real.
 
 Para avaliar a integração real, execute o [backend Java](https://github.com/EduardoPaim5/pulseapi) e siga a configuração abaixo. O antigo endereço Railway não está confirmado como disponível.
 
