@@ -12,11 +12,11 @@ Para avaliar a integração real, execute o [backend Java](https://github.com/Ed
 
 ### Capturas da demonstração
 
-![Painel com dados fictícios](docs/screenshots/demo-desktop.png)
+![Painel com dados fictícios](docs/screenshots/demo-desktop.jpg)
 
 <details><summary>Ver em tela móvel</summary>
 
-<img src="docs/screenshots/demo-mobile.png" width="320" alt="Painel demonstrativo em tela móvel, com aviso de dados fictícios">
+<img src="docs/screenshots/demo-mobile.jpg" width="320" alt="Painel demonstrativo em tela móvel, com aviso de dados fictícios">
 
 </details>
 
