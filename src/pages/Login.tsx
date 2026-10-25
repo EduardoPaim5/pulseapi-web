@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Button from "../components/Button";
@@ -23,8 +24,10 @@ const Login = () => {
     try {
       await login(email.trim(), password);
       navigate("/dashboard");
-    } catch {
-      setError("Credenciais inválidas.");
+    } catch (error) {
+      setError(axios.isAxiosError(error) && !error.response
+        ? "Não foi possível conectar à API. Tente novamente ou visite a demonstração sem cadastro."
+        : "Não foi possível entrar. Confira suas credenciais e tente novamente.");
     } finally {
       setLoading(false);
     }
@@ -44,8 +47,9 @@ const Login = () => {
           <section>
             <form className="space-y-4" onSubmit={handleSubmit}>
               <div>
-                <label className="text-xs uppercase tracking-wide text-white/50">Email</label>
+                <label htmlFor="login-email" className="text-xs uppercase tracking-wide text-white/50">Email</label>
                 <input
+                  id="login-email"
                   type="email"
                   value={email}
                   onChange={(event) => setEmail(event.target.value)}
@@ -55,8 +59,9 @@ const Login = () => {
                 />
               </div>
               <div>
-                <label className="text-xs uppercase tracking-wide text-white/50">Senha</label>
+                <label htmlFor="login-password" className="text-xs uppercase tracking-wide text-white/50">Senha</label>
                 <input
+                  id="login-password"
                   type="password"
                   value={password}
                   onChange={(event) => setPassword(event.target.value)}
@@ -70,6 +75,12 @@ const Login = () => {
                 Entrar
               </Button>
             </form>
+            <div className="mt-6 space-y-2 border-t border-white/20 pt-4">
+              <a href="/dashboard?demo=1" className="inline-flex rounded-xl bg-cyan-100 px-4 py-3 text-sm font-semibold text-slate-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-100">
+                Visitar demonstração sem cadastro
+              </a>
+              <p className="text-sm text-white/80">Explore monitores e alertas com dados fictícios. Nenhum endereço será monitorado.</p>
+            </div>
             <div className="mt-6 text-sm text-white/60">
               Ainda não tem conta?{" "}
               <Link to="/register" className="text-cyan-200 hover:text-cyan-100">

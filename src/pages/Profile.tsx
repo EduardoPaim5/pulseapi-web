@@ -1,3 +1,4 @@
+import { demoMode } from "../demo/mode";
 import AppLayout from "../layouts/AppLayout";
 import Button from "../components/Button";
 import Card from "../components/Card";
@@ -34,11 +35,11 @@ const Profile = () => {
                 </Button>
               </div>
             </Card>
-            <Card title="API Base URL">
+            <Card title={demoMode ? "Sobre a demonstração" : "API Base URL"}>
               <div className="text-sm text-white/70">
-                A aplicação está consumindo a API em:
+                {demoMode ? "Os dados e as ações desta visita são simulados no navegador. Nenhuma API real é chamada." : "A aplicação está consumindo a API em:"}
                 <div className="mt-2 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white">
-                  {apiBaseUrl}
+                  {demoMode ? "Recarregue para restaurar os exemplos ou saia da demonstração para acessar uma conta." : apiBaseUrl}
                 </div>
               </div>
             </Card>

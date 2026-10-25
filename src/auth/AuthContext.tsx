@@ -1,3 +1,4 @@
+import { demoMode } from "../demo/mode";
 import React, { createContext, useCallback, useEffect, useMemo, useState } from "react";
 import { authApi } from "../api/endpoints";
 import type { AuthResponse, MeResponse } from "../api/types";
@@ -64,6 +65,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   );
 
   const logout = useCallback(() => {
+    if (demoMode) { window.location.assign("/login?demo=0"); return; }
     void authApi.logout().catch(() => undefined);
     clearToken();
   }, [clearToken]);

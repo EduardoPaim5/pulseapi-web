@@ -1,4 +1,6 @@
 import axios from "axios";
+import { demoMode } from "../demo/mode";
+import { createDemoAdapter } from "../demo/adapter";
 import type { InternalAxiosRequestConfig } from "axios";
 import { clearToken, getToken, setToken } from "../auth/tokenStore";
 
@@ -12,6 +14,8 @@ export const apiClient = axios.create({
     "Content-Type": "application/json",
   },
 });
+
+if (demoMode) apiClient.defaults.adapter = createDemoAdapter();
 
 const authClient = axios.create({
   baseURL,

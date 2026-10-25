@@ -2,6 +2,24 @@
 
 Frontend para o backend PulseAPI, oferecendo um painel web para monitoramento de endpoints HTTP. A interface é inspirada em Frutiger Aero com glassmorphism, gradientes suaves e foco em legibilidade operacional.
 
+## Visitar sem cadastro
+
+Na [interface publicada](https://pulseapi-web.vercel.app), use **Visitar demonstração sem cadastro**. O link direto é `/dashboard?demo=1`.
+
+A demonstração usa somente dados fictícios no navegador. Consultas, rechecks, novos monitores e reconhecimento de alertas são simulados; nenhum endpoint informado é acessado e as alterações desaparecem ao recarregar. O aviso permanece visível e “Sair da demonstração” retorna ao login normal. O modo é opt-in, nunca um fallback silencioso de uma API indisponível. A publicação depende do deploy do commit que contém essa funcionalidade.
+
+Para avaliar a integração real, execute o [backend Java](https://github.com/EduardoPaim5/pulseapi) e siga a configuração abaixo. O antigo endereço Railway não está confirmado como disponível.
+
+### Capturas da demonstração
+
+![Painel com dados fictícios](docs/screenshots/demo-desktop.png)
+
+<details><summary>Ver em tela móvel</summary>
+
+<img src="docs/screenshots/demo-mobile.png" width="320" alt="Painel demonstrativo em tela móvel, com aviso de dados fictícios">
+
+</details>
+
 ## O que este projeto faz
 - Autenticação (login e registro).
 - Dashboard com totais, alertas recentes e piores monitores.
@@ -38,9 +56,9 @@ npm install
 cp .env.example .env
 ```
 
-Edite `.env` com o endereço da API. Em produção (Railway):
+Edite `.env` com o endereço do backend que você executou:
 ```
-VITE_API_BASE_URL=https://pulseapi-production-c537.up.railway.app
+VITE_API_BASE_URL=http://localhost:8080
 ```
 
 3. Inicie o app:
